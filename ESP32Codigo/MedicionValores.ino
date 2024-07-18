@@ -3,11 +3,14 @@
 #include <Adafruit_BMP280.h>
 #include <WiFi.h>
 #include <HTTPClient.h>
+#include "DHTesp.h"
+
 //credemciales Wifi
 const char* ssid = "*****";
-const char* password = "********";
+const char* password = "****";
 
 const char* serverUrl = "http://ec2-18-191-140-37.us-east-2.compute.amazonaws.com:3000/api/bmp280";
+const char* dht22ServerUrl = "http://ec2-18-191-140-37.us-east-2.compute.amazonaws.com:3000/api/dht22";
 
 #define BMP_SCK  (13)
 #define BMP_MISO (12)
@@ -15,6 +18,7 @@ const char* serverUrl = "http://ec2-18-191-140-37.us-east-2.compute.amazonaws.co
 #define BMP_CS   (10)
 
 Adafruit_BMP280 bmp; // I2C
+DHTesp dht; 
 
 void setup() {
   Serial.begin(9600);
@@ -51,33 +55,64 @@ void setup() {
                   Adafruit_BMP280::SAMPLING_X16,    /* Pressure Oversampling */
                   Adafruit_BMP280::FILTER_X16,      /* Filtering */
                   Adafruit_BMP280::STANDBY_MS_500); /* Standby Time */
+  // Inicializar el DHT22
+  dht.setup(15, DHTesp::DHT22);
 }
 
 void loop() {
   float temperature = bmp.readTemperature();
   float pressure = bmp.readPressure();
   float altitude = bmp.readAltitude(1011.9); 
-  String jsonData = String("{\"temperature\":") + temperature +
+  String bmpJsonData = String("{\"temperature\":") + temperature +
                   String(",\"pressure\":") + pressure +
                   String(",\"altitude\":") + altitude + "}";
 
  // Inicializar cliente HTTP
-  HTTPClient http;
-  http.begin(serverUrl);
-  http.addHeader("Content-Type", "application/json");
+  HTTPClient bmpHttp;
+  bmpHttp.begin(serverUrl);
+  bmpHttp.addHeader("Content-Type", "application/json");
   // Realizar solicitud POST al servidor
-  int httpResponseCode = http.POST(jsonData);
+  int bmpHttpResponseCode  = bmpHttp.POST(bmpJsonData);
 
-   if (httpResponseCode > 0) {
+   if (bmpHttpResponseCode  > 0) {
     Serial.print("HTTP Response code: ");
-    Serial.println(httpResponseCode);
-    String payload = http.getString();
-    Serial.println(payload);
+    Serial.println(bmpHttpResponseCode);
+    String bmpPayload  = bmpHttp.getString();
+    Serial.println(bmpPayload);
   } else {
-    Serial.print("Error en la solicitud HTTP: ");
-    Serial.println(httpResponseCode);
+    Serial.print("Error en la solicitud HTTP BMP280: ");
+    Serial.println(bmpHttpResponseCode);
   }
-    http.end();
+  bmpHttp.end();
+
+  // Leer datos del DHT22
+  TempAndHumidity dhtData = dht.getTempAndHumidity();
+  float dhtTemperature = dhtData.temperature;
+  float humidity = dhtData.humidity;
+
+  // Crear objeto JSON con los datos del DHT22
+  String dhtJsonData = String("{\"temperature\":") + dhtTemperature +
+                       String(",\"humidity\":") + humidity + "}";
+
+  // Inicializar cliente HTTP para DHT22
+  HTTPClient dhtHttp;
+  dhtHttp.begin(dht22ServerUrl);
+  dhtHttp.addHeader("Content-Type", "application/json");
+
+  // Realizar solicitud POST al servidor para DHT22
+  int dhtHttpResponseCode = dhtHttp.POST(dhtJsonData);
+
+  if (dhtHttpResponseCode > 0) {
+    Serial.print("HTTP Response code DHT22: ");
+    Serial.println(dhtHttpResponseCode);
+    String dhtPayload = dhtHttp.getString();
+    Serial.println(dhtPayload);
+  } else {
+    Serial.print("Error en la solicitud HTTP DHT22: ");
+    Serial.println(dhtHttpResponseCode);
+  }
+
+  dhtHttp.end();
 
   // Print temperature in Celsius
   Serial.print(F("Temperature = "));
@@ -95,5 +130,14 @@ void loop() {
   Serial.println(F(" m"));
 
   Serial.println(); // Print a blank line for readability
+
+   TempAndHumidity data = dht.getTempAndHumidity();
+  //Mostramos los datos de la temperatura y humedad
+  Serial.println("Temperatura: " + String(data.temperature, 2) + "°C");
+  Serial.println("Humedad: " + String(data.humidity, 1) + "%");
+  Serial.println("---");
+  delay(1000);
+  Serial.println(); // Print a blank line for readability
+
   delay(5000); // Esperar 5 segundos antes de enviar el siguiente dato
 }
