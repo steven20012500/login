@@ -23,5 +23,15 @@ bmp280Controller.addData = async (req, res) => {
       });
   };
 
+  bmp280Controller.getData = async (req, res) => {
+    Sensor.find()
+      .then(data => {
+        res.status(200).send(data);
+      })
+      .catch(err => {
+        console.error(err);
+        res.status(500).send('Error al obtener los datos');
+      });
+  };
 
 module.exports = bmp280Controller;
