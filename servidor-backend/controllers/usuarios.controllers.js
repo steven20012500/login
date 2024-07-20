@@ -18,7 +18,7 @@ usuariosController.addUsuario = async (req, res) => {
       }
     
       try {
-        const newUser = new User({ username, password, role });
+        const newUser = new Usuario({ username, password, role });
         await newUser.save();
         res.json({
           message: 'Usuario creado exitosamente',
@@ -28,4 +28,6 @@ usuariosController.addUsuario = async (req, res) => {
         res.status(500).send(err);
       }
 }
+
+module.exports = usuariosController;
 
