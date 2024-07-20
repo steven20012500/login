@@ -8,6 +8,7 @@ import { MenuComponent } from './menu/menu.component';
 import { HomeComponent } from './home/home.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { RouterModule, Routes } from '@angular/router';
+import { SensorGraficosComponent } from './sensor-graficos/sensor-graficos.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { RouterModule, Routes } from '@angular/router';
     LoginComponent,
     MenuComponent,
     HomeComponent,
-    NavbarComponent
+    NavbarComponent,
+    SensorGraficosComponent
   ],
   imports: [
     BrowserModule,
