@@ -9,6 +9,8 @@ import { HomeComponent } from './home/home.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { RouterModule, Routes } from '@angular/router';
 import { SensorGraficosComponent } from './sensor-graficos/sensor-graficos.component';
+import { CrearUsuarioComponent } from './crear-usuario/crear-usuario.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -17,12 +19,14 @@ import { SensorGraficosComponent } from './sensor-graficos/sensor-graficos.compo
     MenuComponent,
     HomeComponent,
     NavbarComponent,
-    SensorGraficosComponent
+    SensorGraficosComponent,
+    CrearUsuarioComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     RouterModule,
+    FormsModule
   ],
   providers: [
     provideHttpClient(withFetch())
