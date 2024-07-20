@@ -16,14 +16,13 @@ dht22Controller.addData = async (req, res) => {
   };
   
   dht22Controller.getData = async (req, res) => {
-    Dht22.find()
-      .then(data => {
-        res.status(200).send(data);
-      })
-      .catch(err => {
-        console.error(err);
-        res.status(500).send('Error al obtener los datos');
-      });
+    try{
+      const dht22 = await Dht22.find();
+      res.json(dht22);
+    }catch (error){
+      console.error('Error al obtener los datos:', error);
+      res.status(500).json({ message: 'Error interno al obtener los datos' });
+    }
   };
 
 module.exports = dht22Controller;
