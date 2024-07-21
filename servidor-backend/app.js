@@ -5,7 +5,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 require('./database');
-//require('dotenv').config();
+require('dotenv').config();
 
 app.use(express.json());
 // app.use(morgan('dev')); monitoreo de peticiones

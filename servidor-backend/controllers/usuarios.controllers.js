@@ -1,6 +1,5 @@
 const Usuario = require('../models/usuarios');
-const bcrypt = require('bcryptjs');
-
+const jwt = require('jsonwebtoken');
 
 const usuariosController = {};
 
@@ -13,6 +12,27 @@ usuariosController.getUsuarios = async (req, res) => {
       }
 }
 
+
+usuariosController.login = async (req, res) => {
+  const { username, password } = req.body;
+  const accessTokenSecret = process.env.ACCESS_TOKEN_SECRET;
+  console.log('accessTokenSecret:', accessTokenSecret);
+try {
+  const usuario = await Usuario.findOne({ username });
+    if (!usuario) {
+        return res.status(401).send("El correo no existe");
+    }
+    if (usuario.password !== password) {
+        return res.status(401).send("Contraseña incorrecta");
+    }
+    const token = jwt.sign({ _id: usuario._id, role: usuario.role }, accessTokenSecret);
+    return res.status(200).json({ token });
+
+} catch (error) {
+    console.error('Error en el login:', error);
+    return res.status(500).json({ message: 'Error interno en el servidor' });
+}
+}
 usuariosController.addUsuario = async (req, res) => {
     const { username, password, role } = req.body;
 
@@ -63,6 +83,8 @@ usuariosController.updatePassword = async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 } 
+
+
 
 module.exports = usuariosController;
 
