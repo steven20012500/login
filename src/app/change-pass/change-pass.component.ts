@@ -10,14 +10,15 @@ import { NgForm } from '@angular/forms';
 export class ChangePassComponent {
   constructor(private operadorService: OperadorService) { }
   onSubmit(form: NgForm) {
-    this.operadorService.changePassword(form.value).subscribe(
-      response => {
+    this.operadorService.changePassword(form.value).subscribe({
+      next: (response) => {
         console.log('Contraseña cambiada:', response);
         form.reset();
       },
-      error => {
+      error: (error) => {
         console.error('Error al cambiar la contraseña:', error);
       }
-    );
+    });
   }
 }
+

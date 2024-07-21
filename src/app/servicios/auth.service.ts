@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { StorageService } from './storage.service';
 import { Observable } from 'rxjs';
-
+import { jwtDecode } from 'jwt-decode';
 @Injectable({
   providedIn: 'root'
 })
@@ -22,7 +22,7 @@ export class AuthService {
 
   logoutUser(): void {
     this.storageService.removeItem('token');
-    this.router.navigate(['/registro']);
+    this.router.navigate(['/login']);
   }
 
   getToken(): string | null {
@@ -31,5 +31,14 @@ export class AuthService {
 
   isLoggedIn(): boolean {
     return !!this.storageService.getItem('token');
+  }
+  typeUser(): string {
+    const token = this.storageService.getItem('token');
+    if (token) {
+      const decoded: any = jwtDecode(token);
+      const userRole = decoded.role;
+      return userRole;
+    }
+    return '';
   }
 }

@@ -22,15 +22,16 @@ export class LoginComponent {
   constructor(private authService: AuthService,private storageService: StorageService, private router: Router) {}
   loginUser(event: Event) {
     event.preventDefault();
-    this.authService.loginUser(this.usuarios).subscribe(
-      res => {
+    this.authService.loginUser(this.usuarios).subscribe({
+      next: (res) => {
         this.storageService.setItem('token', res.token);
-        this.router.navigate(['/sensores']).then(() => {
+        this.router.navigate(['/']).then(() => {
+          // If you need to trigger some updates or refresh parts of your app, do it here
           window.location.reload();
         });
       },
-      err => console.error(err)
-    );
+      error: (err) => console.error(err)
+    });
   }
   
  

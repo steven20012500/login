@@ -1,13 +1,23 @@
+<!-- src/app/app.component.html -->
 <div class="header">
     <a [routerLink]="['/']" class="logo">IOT</a>
-
+  
     <nav class="navbar">
-        <a [routerLink]="['/']">Home</a>
-        <a [routerLink]="['/sensores']">Datos Recopilados</a>
-        <a [routerLink]="['/login']">Login</a>
-        <a [routerLink]="['/usuarios']">Crear Usuario</a>
-        <a [routerLink]="['/verUsuarios']">Ver Usuarios</a>
-        <a [routerLink]="['/changePass']">Cambiar Constraseña</a>
-        <a [routerLink]="['/contacto']">Contáctanos</a>
+      <a [routerLink]="['/']">Home</a>
+      <a *ngIf="TypeUser === 'operador' && isAuthenticated " [routerLink]="['/sensores']">Datos Recopilados</a>
+      <a *ngIf="!isAuthenticated" [routerLink]="['/login']">Login</a>
+      <a *ngIf="TypeUser === 'administrador' && isAuthenticated " [routerLink]="['/usuarios']">Crear Usuario</a>
+      <a *ngIf="TypeUser === 'administrador' && isAuthenticated" [routerLink]="['/verUsuarios']">Ver Usuarios</a>
+      <a *ngIf="TypeUser === 'operador'  && isAuthenticated" [routerLink]="['/changePass']">Cambiar Contraseña</a>
+      <a [routerLink]="['/contacto']">Contáctanos</a>
     </nav>
+    <div *ngIf="isAuthenticated" class="user-menu">
+        <img src="/user-icon.png" alt="Usuario" class="user-icon">
+        <div class="dropdown">
+            <button class="dropbtn">{{TypeUser}}</button>
+            <div class="dropdown-content">
+                <a href="#" (click)="logOut($event)"> Cerrar sesión </a>
+            </div>
+        </div>
+    </div>
 </div>

@@ -15,7 +15,6 @@ const routes: Routes = [
   {path: 'verUsuarios', component: VerUsuarioComponent},
   {path: 'changePass', component: ChangePassComponent}
 
-
 ];
 
 @NgModule({
