@@ -1,17 +1,32 @@
 <div class="content">
-    <h2>Lista de Usuarios</h2>
+  <div>
+    <h2>Gestión de Usuarios</h2>
     <table>
       <thead>
         <tr>
-          <th>Email</th>
+          <th>Nombre de Usuario</th>
           <th>Rol</th>
+          <th>Acciones</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let user of users">
           <td>{{ user.username }}</td>
           <td>{{ user.role }}</td>
+          <td>
+            <button (click)="onDelete(user.username)">Eliminar</button>
+            <button (click)="onEdit(user.username)">Actualizar</button>
+          </td>
         </tr>
       </tbody>
     </table>
+  
+    <div *ngIf="selectedUser">
+      <h3>Actualizar Usuario</h3>
+      <p>Usuario: {{ selectedUser.username }}</p>
+      <input type="password" [(ngModel)]="newPassword" placeholder="Nueva contraseña (opcional)">
+      <input type="text" [(ngModel)]="newRole" placeholder="Nuevo rol (opcional)">
+      <button (click)="onUpdate()">Actualizar Usuario</button>
+    </div>
+  </div>
   </div>

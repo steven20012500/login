@@ -83,8 +83,60 @@ usuariosController.updatePassword = async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 } 
+usuariosController.deleteUsuario = async (req, res) => {
+  const { username } = req.params;
 
+  try {
+    const usuario = await Usuario.findOneAndDelete({ username });
+    if (!usuario) {
+      return res.status(404).json({ msg: 'Usuario no encontrado' });
+    }
+    res.json({ msg: 'Usuario eliminado exitosamente' });
+  } catch (error) {
+    res.status(500).json({ message: 'Error interno en el servidor', error: error.message });
+  }
+};
 
+usuariosController.updateUsuario = async (req, res) => {
+  const { username } = req.params;
+  const { newPassword, role } = req.body;
+
+  try {
+    const usuario = await Usuario.findOne({ username });
+    if (!usuario) {
+      return res.status(404).json({ msg: 'Usuario no encontrado' });
+    }
+
+    // Actualiza el password si se proporciona uno nuevo
+    if (newPassword) {
+      usuario.password = newPassword; // Asegúrate de encriptar la contraseña antes de guardar
+    }
+
+    if (role) {
+      usuario.role = role;
+    }
+
+    await usuario.save();
+
+    res.json({ msg: 'Usuario actualizado exitosamente' });
+  } catch (error) {
+    res.status(500).json({ message: 'Error interno en el servidor', error: error.message });
+  }
+};
+
+usuariosController.getUserByUsername = async (req, res) => {
+  const { username } = req.params;
+
+  try {
+    const usuario = await Usuario.findOne({ username });
+    if (!usuario) {
+      return res.status(404).json({ msg: 'Usuario no encontrado' });
+    }
+    res.json(usuario);
+  } catch (error) {
+    res.status(500).json({ message: 'Error interno en el servidor', error: error.message });
+  }
+};
 
 module.exports = usuariosController;
 

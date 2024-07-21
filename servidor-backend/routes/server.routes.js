@@ -13,5 +13,9 @@ router.get('/dht22',verifyToken, dht22.getData);
 router.post('/usuarios',verifyToken, usuarios.addUsuario);
 router.get('/usuarios',verifyToken, usuarios.getUsuarios);
 router.post('/usuarios/update-password',verifyToken, usuarios.updatePassword);
+router.delete('/usuarios/:id',verifyToken, usuarios.deleteUsuario);
+router.put('/usuarios/:id',verifyToken, usuarios.updateUsuario);
+router.get('/usuarios/:id',verifyToken, usuarios.getUserByUsername);
+
 
 module.exports = router;
