@@ -9,5 +9,6 @@ router.post('/dht22', dht22.addData);
 router.get('/bmp280', bmp280.getData);
 router.get('/dht22', dht22.getData);    
 router.post('/usuarios', usuarios.addUsuario);
+router.get('/usuarios', usuarios.getUsuarios);
 
 module.exports = router;

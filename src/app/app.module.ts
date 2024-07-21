@@ -11,6 +11,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { SensorGraficosComponent } from './sensor-graficos/sensor-graficos.component';
 import { CrearUsuarioComponent } from './crear-usuario/crear-usuario.component';
 import { FormsModule } from '@angular/forms';
+import { VerUsuarioComponent } from './ver-usuario/ver-usuario.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { FormsModule } from '@angular/forms';
     HomeComponent,
     NavbarComponent,
     SensorGraficosComponent,
-    CrearUsuarioComponent
+    CrearUsuarioComponent,
+    VerUsuarioComponent
   ],
   imports: [
     BrowserModule,
