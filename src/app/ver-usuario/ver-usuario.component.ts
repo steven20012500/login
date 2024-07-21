@@ -13,22 +13,8 @@ export class VerUsuarioComponent implements OnInit {
   constructor(private administradorService: AdministradorService) {}
 
   ngOnInit(): void {
-    this.getUsers();
+    this.administradorService.getUsuarios().subscribe(users => {
+      this.users = users.map(users => ({ ...users})); 
+    });  
   }
-
-  getUsers() {
-    this.administradorService.getUsuarios().subscribe({
-      next: (response: Usuario[]) => {
-        this.users = response;
-      },
-      error: error => {
-        console.error('Error al obtener usuarios', error);
-      },
-      complete: () => {
-        console.log('Solicitud completada');
-      }
-    });
-    
-  }
-
 }
