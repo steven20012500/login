@@ -61,10 +61,10 @@ usuariosController.addUsuario = async (req, res) => {
 }
 
 usuariosController.updatePassword = async (req, res) => {
-  const { username, oldPassword, newPassword } = req.body;
-
+  const { oldPassword, newPassword } = req.body;
+  const _id = req.userId;
   try {
-    const usuario = await Usuario.findOne({ username });
+    const usuario = await Usuario.findOne({ _id });
     if (!usuario) {
       return res.status(400).json({ msg: 'Usuario no encontrado' });
     }
@@ -138,19 +138,6 @@ usuariosController.getUserByUsername = async (req, res) => {
   }
 };
 
-usuariosController.getUserById = async (req, res) => {
-  const { _id } = req.userId ;
-
-  try {
-    const usuario = await Usuario.findById(_id);
-    if (!usuario) {
-      return res.status(404).json({ msg: 'Usuario no encontrado' });
-    }
-    res.json(usuario);
-  } catch (error) {
-    res.status(500).json({ message: 'Error interno en el servidor', error: error.message });
-  }
-}
 
 module.exports = usuariosController;
 
