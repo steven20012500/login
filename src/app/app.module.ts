@@ -12,6 +12,7 @@ import { SensorGraficosComponent } from './sensor-graficos/sensor-graficos.compo
 import { CrearUsuarioComponent } from './crear-usuario/crear-usuario.component';
 import { FormsModule } from '@angular/forms';
 import { VerUsuarioComponent } from './ver-usuario/ver-usuario.component';
+import { ChangePassComponent } from './change-pass/change-pass.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { VerUsuarioComponent } from './ver-usuario/ver-usuario.component';
     NavbarComponent,
     SensorGraficosComponent,
     CrearUsuarioComponent,
-    VerUsuarioComponent
+    VerUsuarioComponent,
+    ChangePassComponent
   ],
   imports: [
     BrowserModule,

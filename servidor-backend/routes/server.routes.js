@@ -10,5 +10,5 @@ router.get('/bmp280', bmp280.getData);
 router.get('/dht22', dht22.getData);    
 router.post('/usuarios', usuarios.addUsuario);
 router.get('/usuarios', usuarios.getUsuarios);
-
+router.post('/usuarios/update-password', usuarios.updatePassword);
 module.exports = router;
