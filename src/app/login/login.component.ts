@@ -20,11 +20,12 @@ export class LoginComponent {
     
   };
   constructor(private authService: AuthService,private storageService: StorageService, private router: Router) {}
-  loginUser() {
+  loginUser(event: Event) {
+    event.preventDefault();
     this.authService.loginUser(this.usuarios).subscribe(
       res => {
         this.storageService.setItem('token', res.token);
-        this.router.navigate(['']).then(() => {
+        this.router.navigate(['/sensores']).then(() => {
           window.location.reload();
         });
       },
