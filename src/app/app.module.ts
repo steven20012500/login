@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { provideHttpClient, withFetch, HTTP_INTERCEPTORS } from '@angular/common/http'; 
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,7 +13,7 @@ import { CrearUsuarioComponent } from './crear-usuario/crear-usuario.component';
 import { FormsModule } from '@angular/forms';
 import { VerUsuarioComponent } from './ver-usuario/ver-usuario.component';
 import { ChangePassComponent } from './change-pass/change-pass.component';
-import { authInterceptor } from './interceptor/auth.interceptor';
+import { AuthInterceptor } from './interceptor/auth.interceptor'; // Ajusta la ruta según sea necesario
 
 @NgModule({
   declarations: [
@@ -31,12 +31,13 @@ import { authInterceptor } from './interceptor/auth.interceptor';
     BrowserModule,
     AppRoutingModule,
     RouterModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
+
   ],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useFactory: authInterceptor, multi: true },
-     provideHttpClient(withFetch())
-  ],
+      { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
+     ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

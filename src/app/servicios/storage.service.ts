@@ -27,4 +27,8 @@ export class StorageService {
       localStorage.removeItem(key);
     }
   }
+  getToken(): string | null {
+    return localStorage.getItem('token');
+  }
+
 }

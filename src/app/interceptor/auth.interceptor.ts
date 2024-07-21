@@ -1,29 +1,40 @@
-import { HttpInterceptorFn } from '@angular/common/http';
+// src/app/auth.interceptor.ts
+import { Injectable } from '@angular/core';
 import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { Router } from '@angular/router';
-import { inject } from '@angular/core';
+import { StorageService } from '../servicios/storage.service';
 
-export const authInterceptor: HttpInterceptorFn = (req, next) => {
- // Obtener el token del almacenamiento
- const token = localStorage.getItem('token'); // O usa StorageService si lo prefieres
- const router = inject(Router);
- // Clonar la solicitud y agregar el token de autorización si está presente
- const authReq = token ? req.clone({
-   setHeaders: {
-     Authorization: `Bearer ${token}`
-   }
- }) : req;
+@Injectable()
+export class AuthInterceptor implements HttpInterceptor {
 
- // Manejo de errores
- return next(authReq).pipe(
-   catchError((error: HttpErrorResponse) => {
-     if (error.status === 401) {
-       // Manejar error de no autorizado (token inválido o expirado)
-       console.error('Token no válido o expirado. Redirigiendo a inicio de sesión...');
-       // Aquí puedes redirigir al usuario a la página de inicio de sesión o mostrar un mensaje
-     }
-     return throwError(error);
-   })
- );};
+  constructor(private storageService: StorageService, private router: Router) {}
+
+  intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+    // Obtener el token del StorageService
+    const token = this.storageService.getToken();
+
+    // Clonar la solicitud y agregar el token de autorización si está presente
+    const authReq = token ? req.clone({
+      setHeaders: {
+        Authorization: `Bearer ${token}`
+      }
+    }) : req;
+
+    // Manejo de errores
+    return next.handle(authReq).pipe(
+      catchError((error: HttpErrorResponse) => {
+        if (error.status === 401) {
+          // Manejar error de no autorizado (token inválido o expirado)
+          console.error('Token no válido o expirado. Redirigiendo a inicio de sesión...');
+          this.router.navigate(['/login']); // Redirigir a la página de inicio de sesión
+        } else if (error.status === 403) {
+          // Manejar error de prohibido (usuario no tiene permiso)
+          console.error('Acceso prohibido. No tienes permiso para acceder a este recurso.');
+        }
+        return throwError(error);
+      })
+    );
+  }
+}
