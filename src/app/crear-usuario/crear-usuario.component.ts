@@ -1,15 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { AdministradorService } from '../servicios/administrador.service';
 import { Usuario } from '../clases/usuario';
 import { NgForm } from '@angular/forms';
-
 
 @Component({
   selector: 'app-crear-usuario',
   templateUrl: './crear-usuario.component.html',
   styleUrl: './crear-usuario.component.css'
 })
-export class CrearUsuarioComponent {
+export class CrearUsuarioComponent  {
+  @ViewChild('userForm', { static: false }) userForm!: NgForm;
   usuario: Usuario = {
     _id: '',
     username: '',
@@ -19,9 +19,9 @@ export class CrearUsuarioComponent {
     updatedAt: ''
  };
   constructor(private administradorService:AdministradorService ) {}
-  
-  onSubmit(form: NgForm): void {
-    if (form.valid) {
+
+  onSubmit(): void {
+    if (this.userForm.valid) {
       this.administradorService.addUsuario(this.usuario).subscribe({
         next: response => {
           console.log('Usuario creado', response);
