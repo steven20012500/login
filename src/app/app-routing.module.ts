@@ -6,14 +6,18 @@ import { SensorGraficosComponent } from './sensor-graficos/sensor-graficos.compo
 import { CrearUsuarioComponent } from './crear-usuario/crear-usuario.component';
 import { VerUsuarioComponent } from './ver-usuario/ver-usuario.component';
 import { ChangePassComponent } from './change-pass/change-pass.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 const routes: Routes = [
-  {path: '', component: HomeComponent},
+  {path: 'home', component: HomeComponent},
   {path: 'login', component: LoginComponent},
   {path: 'sensores', component: SensorGraficosComponent},
   {path: 'usuarios', component: CrearUsuarioComponent},
   {path: 'verUsuarios', component: VerUsuarioComponent},
-  {path: 'changePass', component: ChangePassComponent}
+  {path: 'changePass', component: ChangePassComponent},
+  {path: 'navbar', component: NavbarComponent},
+
+  { path: '', redirectTo: '/home', pathMatch: 'full' } // Redirige al informacion por defecto
 
 ];
 
