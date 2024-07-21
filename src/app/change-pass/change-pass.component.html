@@ -1,5 +1,6 @@
-<!-- src/app/components/change-password/change-password.component.html -->
+<div class="content">
 <form #changePasswordForm="ngForm" (ngSubmit)="onSubmit(changePasswordForm)">
+   
     <div>
       <label for="username">Email:</label>
       <input type="email" id="username" name="username" ngModel required>
@@ -14,4 +15,4 @@
     </div>
     <button type="submit">Change Password</button>
   </form>
-  
+</div>

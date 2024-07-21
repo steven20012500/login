@@ -49,11 +49,12 @@ usuariosController.updatePassword = async (req, res) => {
       return res.status(400).json({ msg: 'Usuario no encontrado' });
     }
 
-    const esCoincidente = await usuario.comparePassword(oldPassword);
-    if (!esCoincidente) {
+    // Comparar la contraseña actual sin bcrypt
+    if (usuario.password !== oldPassword) {
       return res.status(400).json({ msg: 'Contraseña actual incorrecta' });
     }
 
+    // Actualizar la contraseña con la nueva
     usuario.password = newPassword;
     await usuario.save();
 
