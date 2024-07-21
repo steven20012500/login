@@ -41,24 +41,27 @@ usuariosController.addUsuario = async (req, res) => {
 }
 
 usuariosController.updatePassword = async (req, res) => {
+  const { username, oldPassword, newPassword } = req.body;
+
   try {
-    const { username, oldPassword, newPassword } = req.body;
-    const user = await Usuario.findOne({ username });
-    if (!user) {
-      return res.status(404).json({ message: 'Usuario no encontrado' });
+    const usuario = await Usuario.findOne({ username });
+    if (!usuario) {
+      return res.status(400).json({ msg: 'Usuario no encontrado' });
     }
-    const isMatch = await user.comparePassword(oldPassword);
-    if (!isMatch) {
-      return res.status(400).json({ message: 'Contraseña antigua incorrecta' });
+
+    const esCoincidente = await usuario.comparePassword(oldPassword);
+    if (!esCoincidente) {
+      return res.status(400).json({ msg: 'Contraseña actual incorrecta' });
     }
-    user.password = newPassword;
-    await user.save();
-    res.status(200).json({ message: 'Contraseña cambiada exitosamente' });
+
+    usuario.password = newPassword;
+    await usuario.save();
+
+    res.json({ msg: 'Contraseña actualizada exitosamente' });
   } catch (error) {
-    res.status(500).json({ message: 'Error al cambiar la contraseña', error });
+    res.status(500).json({ error: error.message });
   }
-  
-}
+} 
 
 module.exports = usuariosController;
 
