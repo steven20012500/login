@@ -9,6 +9,7 @@ import { NgForm } from '@angular/forms';
 })
 export class ChangePassComponent {
   constructor(private operadorService: OperadorService) { }
+
   onSubmit(form: NgForm) {
     this.operadorService.changePassword(form.value).subscribe({
       next: (response) => {

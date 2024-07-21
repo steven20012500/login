@@ -17,5 +17,4 @@ router.delete('/usuarios/:username',verifyToken, usuarios.deleteUsuario);
 router.put('/usuarios/:username',verifyToken, usuarios.updateUsuario);
 router.get('/usuarios/:username',verifyToken, usuarios.getUserByUsername);
 
-
 module.exports = router;
