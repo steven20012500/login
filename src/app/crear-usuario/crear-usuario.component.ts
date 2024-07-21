@@ -2,9 +2,14 @@ import { Component, ViewChild } from '@angular/core';
 import { AdministradorService } from '../servicios/administrador.service';
 import { Usuario } from '../clases/usuario';
 import { NgForm } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-crear-usuario',
+  standalone: true,
+  imports: [
+    FormsModule
+  ],
   templateUrl: './crear-usuario.component.html',
   styleUrl: './crear-usuario.component.css'
 })

@@ -22,6 +22,7 @@
     "@angular/router": "^18.1.1",
     "@angular/ssr": "^18.1.1",
     "@fortawesome/fontawesome-free": "^6.6.0",
+    "@nguniversal/module-map-ngfactory-loader": "^8.2.6",
     "chart.js": "^4.4.3",
     "express": "^4.19.2",
     "jwt-decode": "^4.0.0",

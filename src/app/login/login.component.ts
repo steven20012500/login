@@ -3,8 +3,13 @@ import { AuthService } from '../servicios/auth.service';
 import { Router } from '@angular/router'; // Import the correct module for Router
 import { StorageService } from '../servicios/storage.service';
 import { Usuario } from '../clases/usuario';
+import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-login',
+  standalone: true,
+  imports: [
+    FormsModule
+  ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })

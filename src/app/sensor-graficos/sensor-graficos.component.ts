@@ -9,6 +9,8 @@ Chart.register(...registerables);
 
 @Component({
   selector: 'app-sensor-graficos',
+  standalone: true,
+  imports: [],
   templateUrl: './sensor-graficos.component.html',
   styleUrls: ['./sensor-graficos.component.css']  // Corrección: styleUrls en lugar de styleUrl
 })

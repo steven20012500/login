@@ -16,7 +16,6 @@ const routes: Routes = [
   {path: 'verUsuarios', component: VerUsuarioComponent},
   {path: 'changePass', component: ChangePassComponent},
   {path: 'navbar', component: NavbarComponent},
-
   { path: '', redirectTo: '/home', pathMatch: 'full' } // Redirige al informacion por defecto
 
 ];

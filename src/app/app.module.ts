@@ -1,3 +1,4 @@
+/*
 import { NgModule } from '@angular/core';
 import { provideHttpClient, withFetch, withInterceptors } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
@@ -39,3 +40,4 @@ import { authInterceptor } from './interceptor/auth.interceptor'; // Ajusta la r
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+*/

@@ -1,9 +1,15 @@
 import { Component,OnInit } from '@angular/core';
 import { AdministradorService } from '../servicios/administrador.service';
 import { Usuario } from '../clases/usuario';
-
+import { FormsModule } from '@angular/forms'
+import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-ver-usuario',
+  standalone: true,
+  imports: [
+    FormsModule,
+    CommonModule
+  ],
   templateUrl: './ver-usuario.component.html',
   styleUrl: './ver-usuario.component.css'
 })

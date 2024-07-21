@@ -8,7 +8,7 @@ describe('ChangePassComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ChangePassComponent]
+      imports: [ChangePassComponent]
     })
     .compileComponents();
 

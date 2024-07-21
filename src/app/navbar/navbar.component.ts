@@ -1,8 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../servicios/auth.service';
 import { Router } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router'; // Add this line
+import { CommonModule } from '@angular/common'; // Add this line
 @Component({
   selector: 'app-navbar',
+  standalone: true,
+  imports: [
+    FormsModule,
+    RouterModule,
+    CommonModule
+  ],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css'
 })

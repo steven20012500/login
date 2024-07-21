@@ -1,9 +1,15 @@
 import { Component } from '@angular/core';
 import { OperadorService } from '../servicios/operador.service';	
 import { NgForm } from '@angular/forms';
-
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-change-pass',
+  standalone: true,
+  imports: [
+    FormsModule,
+    CommonModule
+  ],
   templateUrl: './change-pass.component.html',
   styleUrl: './change-pass.component.css'
 })

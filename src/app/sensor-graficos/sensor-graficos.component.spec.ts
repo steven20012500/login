@@ -8,7 +8,7 @@ describe('SensorGraficosComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [SensorGraficosComponent]
+      imports: [SensorGraficosComponent]
     })
     .compileComponents();
 
