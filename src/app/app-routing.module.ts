@@ -5,13 +5,15 @@ import { LoginComponent } from './login/login.component';
 import { SensorGraficosComponent } from './sensor-graficos/sensor-graficos.component';
 import { CrearUsuarioComponent } from './crear-usuario/crear-usuario.component';
 import { VerUsuarioComponent } from './ver-usuario/ver-usuario.component';
+import { ChangePassComponent } from './change-pass/change-pass.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'login', component: LoginComponent},
   {path: 'sensores', component: SensorGraficosComponent},
   {path: 'usuarios', component: CrearUsuarioComponent},
-  {path: 'verUsuarios', component: VerUsuarioComponent}
+  {path: 'verUsuarios', component: VerUsuarioComponent},
+  {path: 'changePass', component: ChangePassComponent}
 
 
 ];

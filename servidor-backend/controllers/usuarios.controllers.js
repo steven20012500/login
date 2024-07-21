@@ -1,4 +1,6 @@
 const Usuario = require('../models/usuarios');
+const bcrypt = require('bcryptjs');
+
 
 const usuariosController = {};
 
@@ -55,6 +57,7 @@ usuariosController.updatePassword = async (req, res) => {
   } catch (error) {
     res.status(500).json({ message: 'Error al cambiar la contraseña', error });
   }
+  
 }
 
 module.exports = usuariosController;
