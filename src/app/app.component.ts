@@ -10,7 +10,15 @@ import { VerUsuarioComponent } from './ver-usuario/ver-usuario.component';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, NavbarComponent,ChangePassComponent,HomeComponent,LoginComponent,MenuComponent,SensorGraficosComponent,VerUsuarioComponent],
+  imports: [
+    RouterOutlet,
+      NavbarComponent,
+      ChangePassComponent,
+      HomeComponent,
+      LoginComponent,
+      MenuComponent,
+      SensorGraficosComponent,
+      VerUsuarioComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
