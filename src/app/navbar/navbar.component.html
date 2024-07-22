@@ -3,6 +3,7 @@
     <a [routerLink]="['/']" class="logo">IOT</a>
   
     <nav class="navbar">
+        <!-- 
       <a [routerLink]="['/']">Home</a>
       <a *ngIf="TypeUser === 'operador' && isAuthenticated " [routerLink]="['/sensores']">Datos Recopilados</a>
       <a *ngIf="!isAuthenticated" [routerLink]="['/login']">Login</a>
@@ -10,8 +11,16 @@
       <a *ngIf="TypeUser === 'administrador' && isAuthenticated" [routerLink]="['/verUsuarios']">Ver Usuarios</a>
       <a *ngIf="TypeUser === 'operador'  && isAuthenticated" [routerLink]="['/changePass']">Cambiar Contraseña</a>
       <a [routerLink]="['/contacto']">Contáctanos</a>
+    -->
+      <a [routerLink]="['/']">Home</a>
+      <a [routerLink]="['/sensores']">Datos Recopilados</a>
+      <a  [routerLink]="['/login']">Login</a>
+      <a  [routerLink]="['/usuarios']">Crear Usuario</a>
+      <a  [routerLink]="['/verUsuarios']">Ver Usuarios</a>
+      <a [routerLink]="['/changePass']">Cambiar Contraseña</a>
+      <a [routerLink]="['/contacto']">Contáctanos</a>
     </nav>
-    <div *ngIf="isAuthenticated" class="user-menu">
+    <div  class="user-menu"> <!--*ngIf="isAuthenticated"   -->
         <img src="/user-icon.png" alt="Usuario" class="user-icon">
         <div class="dropdown">
             <button class="dropbtn">{{TypeUser}}</button>
