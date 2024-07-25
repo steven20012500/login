@@ -1,30 +1,125 @@
-<div class="container">
+<div class="banner">
+    <div class="contenido-banner">
+        <h1>ESTACIÓN METEOROLÓGICA ⛅</h1>
+        <p><br>Aprende cómo funciona una estación meteorológica utilizando los sensores DHT22, BMP280 y un
+            ESP32. Además del uso del stack MEAN para su implementación web.</p>
+        <a href="#inicio">
+            <button type="button">Empezar -> </button>
+        </a>
+    </div>
+</div>
+
+<div class="container" id="inicio">
+    <div class="header-content">
+        <h1>Bienvenido a nuestra Estación Meteorológica 😎</h1>
+        <p>Se requieren de los siguientes sensores. Se explican las tecnologias requeridas para la visualización de
+            datos en web.</p>
+    </div>
     <div class="content">
-        <h1 class="text-center">Bienvenido a nuestra Estación Meteorológica</h1>
-        <p class="text-center">Aquí puedes aprender cómo funciona una estación meteorológica utilizando los sensores
-            DHT22,
-            BMP280 y un ESP32.</p>
-        <div class="column">
-            <h2>Sensor BMP280</h2>
-            <p>El sensor de presión barométrica BMP280 permite medir la altura respecto al nivel del mar, su
-                funcionamiento está basado en la relación entre presión del aire y la altitud. El BMP280 es la
-                evolución del BMP180, posee alta precisión y un bajo consumo de energía. El BMP280 ofrece un rango
-                de medición de 300 a 1100 hPa (Hecto Pascal). Basado en tecnología BOSCH piezo-resistiva con gran
-                robustez EMC, alta precisión y linealidad, así como con estabilidad a largo plazo. Se ha diseñado
-                para ser conectado directamente a un microcontrolador a través de I2C o SPI. El sensor BMP280
-                presenta diversas mejoras respecto al sensor BMP180 como: Mejor resolución de presión y temperatura,
-                mejor precisión, mejores filtros digitales y un menor consumo de energía.</p>
-            <img src="/BMP.jpg" alt="Sensor BPM">
+        <div class="card">
+            <div class="face front">
+                <img src="/BMP.jpg" alt="Sensor BMP280">
+                <h3>BMP280</h3>
+            </div>
+            <div class="face back">
+                <h3>Sensor BMP280</h3>
+                <p>Sensor de presión barométrica BMP280 que permite medir la altura respecto al nivel del mar, su
+                    funcionamiento está basado en la relación entre presión del aire y la altitud.</p>
+                <div class="link">
+                    <a href="https://naylampmechatronics.com/sensores-posicion-inerciales-gps/358-sensor-de-presion-bmp280.html"
+                        target="_blank">Conoce mas😏</a>
+                </div>
+            </div>
         </div>
-        <div class="column">
-            <h2>ESP32</h2>
-            <p>ESP32 es una familia de microcontroladores de la empresa Espressif Systems. Su analogía más clara es
-                la de un ESP8266 con esteroides, que incluye Wifi, Bluetooth y otras potentes características extra.
-                ESP32 es muy superior, en capacidades, a un Arduino UNO y a un ESP8266, pero eso no quiere decir que
-                sea ideal para cualquier proyecto, ya que para sacarle todo el jugo a este microcontrolador es
-                necesario un proyecto más complejo del que estamos acostumbrado.
+        <div class="card">
+            <div class="face front">
+                <img src="/DHT22.jpg" alt="Sensor DHT22">
+                <h3>DHT22</h3>
+            </div>
+            <div class="face back">
+                <h3>Sensor DHT22</h3>
+                <p>Sensor digital de temperatura y humedad relativa, buen rendimiento y bajo costo. Usa un sensor
+                    capacitivo de humedad y un termistor para medir el aire circundante, muestra los datos mediante
+                    una señal digital.</p>
+                <div class="link">
+                    <a href="https://naylampmechatronics.com/sensores-temperatura-y-humedad/58-sensor-de-temperatura-y-humedad-relativa-dht22-am2302.html"
+                        target="_blank">Conoce mas😏</a>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="face front">
+                <img src="/Esp.jpg" alt="Esp32">
+                <h3>ESP32</h3>
+            </div>
+            <div class="face back">
+                <h3>Placa ESP32</h3>
+                <p>Es muy superior, en capacidades, a un Arduino UNO. En su diagrama de bloques se puede apreciar un
+                    microprocesador de 32-bits (dual core o single core), comunicación inalámbrica Wifi y Bluetooth.</p>
+                <div class="link">
+                    <a href="https://programarfacil.com/esp8266/esp32/" target="_blank">Conoce mas😏</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="info-section">
+    <div class="info-container">
+        <img src="/Mean.jpg" alt="Descripción de la imagen" class="info-image">
+        <div class="info-description">
+            <h2>¿Qué es el stack MEAN?</h2>
+            <p>MEAN es un acrónimo que representa un conjunto de tecnologías JavaScript de código abierto, muy populares
+                en el desarrollo web.
+                Una de las principales ventajas es que utiliza JavaScript tanto en el frontend (Angular) como en el backend (Node.js y Express.js). Esto simplifica el desarrollo al permitir a los desarrolladores utilizar un solo lenguaje en toda la aplicación, lo que reduce la curva de aprendizaje y facilita la gestión del código.
+                Tanto MongoDB como Node.js son conocidos por su capacidad para manejar grandes volúmenes de datos y cargas de trabajo elevadas. Esto hace que el stack MEAN sea ideal para aplicaciones que necesitan crecer y adaptarse a un aumento en el número de usuarios.
             </p>
-            <img src="/Esp.jpg" alt="Esp32">
         </div>
+    </div>
+</section>
+
+<div class="info-container">
+    <div class="info-card">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-mongodb" width="60"
+            height="60" viewBox="0 0 24 24" stroke-width="1.5" stroke="#7bc62d" fill="none" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path d="M12 3v19" />
+            <path
+                d="M18 11.227c0 3.273 -1.812 4.77 -6 9.273c-4.188 -4.503 -6 -6 -6 -9.273c0 -4.454 3.071 -6.927 6 -9.227c2.929 2.3 6 4.773 6 9.227z" />
+        </svg>
+        <h2>MongoDB</h2>
+        <p>Una base de datos NoSQL orientada a documentos que permite almacenar datos en un formato flexible y
+            escalable.</p>
+    </div>
+    <div class="info-card">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-nodejs" width="60" height="60" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffbf00" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M9 9v8.044a2 2 0 0 1 -2.996 1.734l-1.568 -.9a3 3 0 0 1 -1.436 -2.561v-6.635a3 3 0 0 1 1.436 -2.56l6 -3.667a3 3 0 0 1 3.128 0l6 3.667a3 3 0 0 1 1.436 2.561v6.634a3 3 0 0 1 -1.436 2.56l-6 3.667a3 3 0 0 1 -3.128 0" />
+            <path d="M17 9h-3.5a1.5 1.5 0 0 0 0 3h2a1.5 1.5 0 0 1 0 3h-3.5" />
+          </svg>
+        <h2>Angular</h2>
+        <p>Framework de fronted para construir aplicaciones de una sola página con TypeScript. Divide la interfaz en componentes reutilizables.</p>
+    </div>
+    <div class="info-card">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-angular" width="60" height="60" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ff4500" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M5.428 17.245l6.076 3.471a1 1 0 0 0 .992 0l6.076 -3.471a1 1 0 0 0 .495 -.734l1.323 -9.704a1 1 0 0 0 -.658 -1.078l-7.4 -2.612a1 1 0 0 0 -.665 0l-7.399 2.613a1 1 0 0 0 -.658 1.078l1.323 9.704a1 1 0 0 0 .495 .734z" />
+            <path d="M9 15l3 -8l3 8" />
+            <path d="M10 13h4" />
+          </svg>
+        <h2>Node.js</h2>
+        <p>Un entorno de ejecución para JavaScript en el servidor que permite construir aplicaciones de red escalables.
+        </p>
+    </div>
+    <div class="info-card">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hexagon-letter-e" width="60" height="60" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ff9300" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M19.875 6.27a2.225 2.225 0 0 1 1.125 1.948v7.284c0 .809 -.443 1.555 -1.158 1.948l-6.75 4.27a2.269 2.269 0 0 1 -2.184 0l-6.75 -4.27a2.225 2.225 0 0 1 -1.158 -1.948v-7.285c0 -.809 .443 -1.554 1.158 -1.947l6.75 -3.98a2.33 2.33 0 0 1 2.25 0l6.75 3.98h-.033z" />
+            <path d="M14 8h-4v8h4" />
+            <path d="M10 12h2.5" />
+          </svg>
+        <h2>JavaScript</h2>
+        <p>Un lenguaje de programación que permite la creación de scripts del lado del cliente en aplicaciones web.</p>
     </div>
 </div>
