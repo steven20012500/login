@@ -1,3 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+}
+
+/*Banner*/
+.banner {
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url(/Banner.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+.contenido-banner {
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+    color: white;
+}
+
+.contenido-banner h1 {
+    font-size: 70px;
+    margin-top: 80px;
+}
+
+.contenido-banner p {
+    font-size: 1.3rem;
+}
+
+button {
+    width: 200px;
+    padding: 15px 0;
+    text-align: center;
+    background: transparent;
+    margin: 20px 10px;
+    border-radius: 25px;
+    font-weight: bold;
+    border: 2px solid white;
+    cursor: pointer;
+    color: white;
+    position: relative;
+    overflow: hidden;
+    font-size: 1.3rem;
+    transition: color 0.3s, background 0.3s;
+}
+
+button:hover {
+    background: rgba(255, 255, 255, 0.2);
+    color: rgb(255, 255, 255);
+    border-color: rgb(255, 255, 255);
+}
+
+.contenido-banner p {
+    margin: 20px auto;
+    font-weight: 100;
+    line-height: 25px;
+}
+
+
 body {
     display: flex;
     justify-content: center;
@@ -7,17 +75,6 @@ body {
     min-height: 100vh;
     background: url('/fondo_login.jpg') no-repeat center center fixed;
     background-size: cover;
-    font-family: 'Poppins', sans-serif;
-}
-
-.content {
-    color: white;
-    padding-top: 4rem;
-}
-
-.text-center {
-    text-align: center;
-    width: 100%;
 }
 
 .container {
@@ -26,28 +83,225 @@ body {
     padding: 0 15px;
 }
 
+.header-content {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding: 3.5rem;
+}
+
+.header-content h1 {
+    font-size: 2.5rem;
+    color: white;
+}
+
+.header-content p {
+    font-size: 1.3rem;
+    color: white;
+    margin-top: 0.5rem;
+}
+
 .content {
+    color: white;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.card {
+    position: relative;
+    height: 350px;
+}
+
+.card .face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: .5s;
+}
+
+.card .front {
+    transform: perspective(600px) rotateY(0deg);
+    box-shadow: 0 5px 10px #000;
+}
+
+.card .front img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card .front h3 {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 45px;
+    line-height: 45px;
+    color: white;
+    background: rgba(0, 0, 0, .4);
+    text-align: center;
+}
+
+.card .back {
+    transform: perspective(600px) rotateY(180deg);
+    background: rgb(247, 247, 247);
+    padding: 15px;
+    color: #000;
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     justify-content: space-between;
+    text-align: center;
+    box-shadow: 0 5px 10px white;
 }
 
-.column {
-    flex-basis: calc(50% - 20px);
-    margin-bottom: 20px;
+.link a {
+    text-decoration: none;
+    font-weight: bold;
 }
 
-.column p{
-    text-align: justify;
+.card .back .link {
+    border-top: solid 1px blueviolet;
+    height: 50px;
+    line-height: 50px;
 }
 
-img {
-    max-width: 100%;
-    height: auto;
+.card .back .link a {
+    color: rgb(0, 0, 0);
+}
+
+.card .back h3 {
+    font-size: 30px;
+    margin-top: 20px;
+    letter-spacing: 2px;
+}
+
+.card .back p {
+    letter-spacing: 1px;
+}
+
+.card:hover .front {
+    transform: perspective(600px) rotateY(180deg);
+}
+
+.card:hover .back {
+    transform: perspective(600px) rotateY(360deg);
 }
 
 @media (max-width: 768px) {
-    .column {
-        flex-basis: 100%;
+    .content {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 576px) {
+    .content {
+        grid-template-columns: 1fr;
+    }
+}
+
+.info-section {
+    padding: 20px;
+    background-color: transparent;
+    padding: 20px 0;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+}
+
+.info-container {
+    display: flex;
+    align-items: center;
+    /* Alinea verticalmente al centro */
+    justify-content: space-between;
+    /* Espacio entre imagen y descripción */
+    max-width: 1200px;
+    /* Ajusta según sea necesario */
+    margin: 0 auto;
+    /* Centra el contenedor */
+}
+
+.info-image {
+    width: 50%;
+    max-width: 500px;
+    border-radius: 10px;
+    object-fit: cover;
+    border: 6px solid white;
+}
+
+.info-description {
+    width: 50%;
+    padding-left: 20px;
+}
+
+.info-description h2 {
+    margin-bottom: 10px;
+    color: white;
+}
+
+.info-description p {
+    line-height: 1.6;
+    text-align: justify;
+    color: white;
+}
+
+/*Cards*/
+.info-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    width: 100%;
+    gap: 20px;
+    /* Espacio entre tarjetas */
+}
+
+.info-card {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    width: calc(25% - 20px);
+    /* 4 tarjetas por fila con espacio entre ellas */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.info-card h2 {
+    margin: 15px 0;
+    color: #333;
+}
+
+.info-card p {
+    color: #666;
+}
+
+.info-card box-icon {
+    font-size: 3rem;
+    color: #333;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.info-card:hover {
+    transform: scale(1.05);
+}
+
+@media (max-width: 1024px) {
+    .info-card {
+        width: calc(33.333% - 20px);
+    }
+}
+
+@media (max-width: 768px) {
+    .info-card {
+        width: calc(50% - 20px);
+    }
+}
+
+@media (max-width: 576px) {
+    .info-card {
+        width: 100%;
     }
 }
