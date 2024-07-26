@@ -1,6 +1,6 @@
 <div class="content">
-  <div>
-    <h2>Gestión de Usuarios</h2>
+  <h2>Gestión de Usuarios</h2>
+  <div class="table-container">
     <table>
       <thead>
         <tr>
@@ -13,20 +13,20 @@
         <tr *ngFor="let user of users">
           <td>{{ user.username }}</td>
           <td>{{ user.role }}</td>
-          <td>
-            <button (click)="onDelete(user.username)">Eliminar</button>
-            <button (click)="onEdit(user.username)">Actualizar</button>
+          <td class="actions">
+            <button class="btn btn-delete" (click)="onDelete(user.username)">Eliminar</button>
+            <button class="btn btn-edit" (click)="onEdit(user.username)">Actualizar</button>
           </td>
         </tr>
       </tbody>
     </table>
-  
-    <div *ngIf="selectedUser">
-      <h3>Actualizar Usuario</h3>
-      <p>Usuario: {{ selectedUser.username }}</p>
-      <input type="password" [(ngModel)]="newPassword" placeholder="Nueva contraseña (opcional)">
-      <input type="text" [(ngModel)]="newRole" placeholder="Nuevo rol (opcional)">
-      <button (click)="onUpdate()">Actualizar Usuario</button>
-    </div>
   </div>
+
+  <div *ngIf="selectedUser" class="update-form">
+    <h3>Actualizar Usuario</h3>
+    <p><strong>Usuario:</strong> {{ selectedUser.username }}</p>
+    <input type="password" [(ngModel)]="newPassword" placeholder="Nueva contraseña (opcional)">
+    <input type="text" [(ngModel)]="newRole" placeholder="Nuevo rol (opcional)">
+    <button class="btn btn-update" (click)="onUpdate()">Actualizar Usuario</button>
   </div>
+</div>

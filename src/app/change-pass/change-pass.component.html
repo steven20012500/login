@@ -1,13 +1,14 @@
 <div class="content">
-<form #changePasswordForm="ngForm" (ngSubmit)="onSubmit(changePasswordForm)">
-    <div>
-      <label for="oldPassword">Old Password:</label>
+  <h2>Cambiar Contraseña</h2>
+  <form #changePasswordForm="ngForm" (ngSubmit)="onSubmit(changePasswordForm)">
+    <div class="form-group">
+      <label for="oldPassword">Antigua Contraseña:</label>
       <input type="password" id="oldPassword" name="oldPassword" ngModel required>
     </div>
-    <div>
-      <label for="newPassword">New Password:</label>
+    <div class="form-group">
+      <label for="newPassword">Nueva Contraseña:</label>
       <input type="password" id="newPassword" name="newPassword" ngModel required minlength="6">
     </div>
-    <button type="submit">Change Password</button>
+    <button type="submit">Cambiar</button>
   </form>
 </div>
