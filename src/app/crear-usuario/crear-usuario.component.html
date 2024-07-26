@@ -1,23 +1,22 @@
-
 <div class="content">
-    <h2>Crear Usuario</h2>
-    <form #userForm="ngForm" (ngSubmit)="onSubmit()">
-      <div>
-        <label for="username">Email:</label>
-        <input type="email" id="username" name="username" [(ngModel)]="usuario.username" required pattern="^[a-zA-Z0-9._%+-]+@ups\.edu\.ec$">
-      </div>
-      <div>
-        <label for="password">Contraseña:</label>
-        <input type="password" id="password" name="password" [(ngModel)]="usuario.password" required minlength="6">
-      </div>
-      <div>
-        <label for="role">Rol:</label>
-        <select id="role" name="role" [(ngModel)]="usuario.role" required>
-          <option value="operador">Operador</option>
-          <option value="administrador">Administrador</option>
-        </select>
-      </div>
-      <button type="submit"> Crear Usuario</button>
-    </form>
-  </div>
-  
+  <h2>Crear Usuario</h2>
+  <form #userForm="ngForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="username">Email:</label>
+      <input type="email" id="username" name="username" [(ngModel)]="usuario.username" required
+        pattern="^[a-zA-Z0-9._%+-]+@ups\.edu\.ec$">
+    </div>
+    <div class="form-group">
+      <label for="password">Contraseña:</label>
+      <input type="password" id="password" name="password" [(ngModel)]="usuario.password" required minlength="6">
+    </div>
+    <div class="form-group">
+      <label for="role">Rol:</label>
+      <select id="role" name="role" [(ngModel)]="usuario.role" required>
+        <option value="operador">Operador</option>
+        <option value="administrador">Administrador</option>
+      </select>
+    </div>
+    <button type="submit">Crear Usuario</button>
+  </form>
+</div>
