@@ -26,7 +26,7 @@ dht22Controller.addData = async (req, res) => {
   };
 
   dht22Controller.getDataRange= async (req, res) => {
-    const range = req.query.range;
+    const range = req.params.range;
     let startDate;
   
     switch (range) {

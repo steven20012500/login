@@ -35,7 +35,7 @@ bmp280Controller.addData = async (req, res) => {
 
 
 bmp280Controller.getDataRange= async (req, res) => {
-  const range = req.query.range;
+  const range = req.params.range;
   let startDate;
 
   switch (range) {

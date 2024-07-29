@@ -23,11 +23,11 @@ export class SensoresService {
   }
 
   getBmp280DataRange(timeRange: string): Observable<Bmp280[]> {
-    return this.http.get<Bmp280[]>(`/api/bmp280-data?range=${timeRange}`);
+    return this.http.get<Bmp280[]>(`${this.bmp280Data}/${timeRange}`);
   }
 
   getDht22DataRange(timeRange: string): Observable<Dht22[]> {
-    return this.http.get<Dht22[]>(`/api/dht22-data?range=${timeRange}`);
+    return this.http.get<Dht22[]>(`${this.dht22Data}/${timeRange}`);
   }
 
 

@@ -20,8 +20,8 @@ router.put('/usuarios/:username',verifyToken, usuarios.updateUsuario);
 router.get('/usuarios/:username',verifyToken, usuarios.getUserByUsername);
 router.get('/download-xls', verifyToken, reportes.generateXlsReport);
 router.get('/download-pdf', verifyToken, reportes.generatePdfReport);
-router.use('/bmp280-data', verifyToken, bmp280.getDataRange);
-router.use('/dht22-data', verifyToken, dht22.getDataRange);
+router.get('/bmp280-data/:range', verifyToken, bmp280.getDataRange);
+router.get('/dht22-data/:range', verifyToken, dht22.getDataRange);
 
 
 module.exports = router;
