@@ -57,7 +57,7 @@ export class SensorGraficosComponent implements AfterViewInit {
       this.bmp280Data = data;
       if (this.bmp280Chart) this.bmp280Chart.destroy();
       const ctx = document.getElementById('bmp280Chart') as HTMLCanvasElement;
-      const labels = this.bmp280Data.map(d => new Date(d.timestamp).toLocaleDateString());
+      const labels = this.bmp280Data.map(d => new Date(d.timestamp).toLocaleString());
       const datasets = [
         {
           label: 'Temperatura (°C)',
@@ -85,7 +85,7 @@ export class SensorGraficosComponent implements AfterViewInit {
       this.dht22Data = data;
       if (this.dht22Chart) this.dht22Chart.destroy();
       const ctx = document.getElementById('dht22Chart') as HTMLCanvasElement;
-      const labels = this.dht22Data.map(d => new Date(d.timestamp).toLocaleDateString());
+      const labels = this.bmp280Data.map(d => new Date(d.timestamp).toLocaleString());
       const datasets = [
         {
           label: 'Temperatura (°C)',

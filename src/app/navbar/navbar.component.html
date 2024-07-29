@@ -9,7 +9,6 @@
       <a *ngIf="TypeUser === 'administrador' && isAuthenticated " [routerLink]="['/usuarios']">Crear Usuario</a>
       <a *ngIf="TypeUser === 'administrador' && isAuthenticated" [routerLink]="['/verUsuarios']">Ver Usuarios</a>
       <a *ngIf="TypeUser === 'operador'  && isAuthenticated" [routerLink]="['/changePass']">Cambiar Contraseña</a>
-      <a  [routerLink]="['/reporte']">Reporte</a>
       <!--<a [routerLink]="['/contacto']">Contáctanos</a>  *ngIf="TypeUser === 'operador'  && isAuthenticated"-->
     </nav>
     <div *ngIf="isAuthenticated"  class="user-menu"> 
