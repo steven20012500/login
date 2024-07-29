@@ -7,6 +7,7 @@ import { LoginComponent } from './login/login.component';
 import { MenuComponent } from './menu/menu.component';
 import { SensorGraficosComponent } from './sensor-graficos/sensor-graficos.component';
 import { VerUsuarioComponent } from './ver-usuario/ver-usuario.component';
+import { ReporteComponent } from './reporte/reporte.component';
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -18,7 +19,9 @@ import { VerUsuarioComponent } from './ver-usuario/ver-usuario.component';
       LoginComponent,
       MenuComponent,
       SensorGraficosComponent,
-      VerUsuarioComponent],
+      VerUsuarioComponent,
+      ReporteComponent
+    ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

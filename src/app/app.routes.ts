@@ -6,6 +6,7 @@ import { CrearUsuarioComponent } from './crear-usuario/crear-usuario.component';
 import { VerUsuarioComponent } from './ver-usuario/ver-usuario.component';
 import { ChangePassComponent } from './change-pass/change-pass.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { ReporteComponent } from './reporte/reporte.component';
 
 export const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -15,6 +16,8 @@ export const routes: Routes = [
   {path: 'verUsuarios', component: VerUsuarioComponent},
   {path: 'changePass', component: ChangePassComponent},
   {path: 'navbar', component: NavbarComponent},
+  {path: 'reporte', component: ReporteComponent},
+
   { path: '', redirectTo: '/home', pathMatch: 'full' } // Redirige al informacion por defecto
 
 ];
