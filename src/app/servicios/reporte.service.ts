@@ -11,9 +11,9 @@ export class ReporteService {
   constructor(private http : HttpClient) { }
 
   downloadXlsReport() {
-    window.location.href = this.apiUrl;
+    window.location.href = this.apiUrl2;
   }
   downloadPdfReport() {
-    window.location.href = this.apiUrl2;
+    window.location.href = this.apiUrl;
   }
 }
