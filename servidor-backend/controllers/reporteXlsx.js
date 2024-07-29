@@ -21,6 +21,5 @@ const generateXlsReport = async () => {
 
   return filePath;
 };
-module.exports = {
-  generateXlsReport
-};
+
+module.exports = generateXlsReport;

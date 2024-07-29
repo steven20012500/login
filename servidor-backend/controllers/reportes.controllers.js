@@ -1,6 +1,7 @@
 const express = require('express');
-const generatePdfReport = require('../models/reportePDF');
-const generateXlsReport = require('../models/reporteXlsx');
+const generatePdfReport = require('../controllers/reportePDF');
+const generateXlsReport = require('../controllers/reporteXlsx');
+
 const reportesController = {};
 
 // Ruta para descargar reporte XLS

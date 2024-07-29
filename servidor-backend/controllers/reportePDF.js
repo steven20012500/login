@@ -26,6 +26,5 @@ const generatePdfReport = async () => {
 
   return filePath;
 };
-module.exports = {
-  generatePdfReport
-};
+
+module.exports = generatePdfReport;
