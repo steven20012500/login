@@ -1,10 +1,24 @@
-<div>
+<body>
+<div class="container">
+  <div class="filter-container">
+    <label for="timeRange">Seleccione el rango de tiempo:</label>
+    <select id="timeRange" (change)="updateCharts($event)">
+      <option value="month">Último Mes</option>
+      <option value="semester">Último Semestre</option>
+      <option value="year">Último Año</option>
+    </select>
+  </div>
+  <div class="chart-container">
     <h2>Datos del BMP280</h2>
     <canvas id="bmp280Chart"></canvas>
   </div>
-  
-  <div>
+  <div class="chart-container">
     <h2>Datos del DHT22</h2>
     <canvas id="dht22Chart"></canvas>
   </div>
-  
+  <div class="button-container">
+    <button (click)="reportePdf()">Descargar PDF</button>
+    <button (click)="reporteXls()">Descargar XLSX</button>
+  </div>
+</div>
+</body>

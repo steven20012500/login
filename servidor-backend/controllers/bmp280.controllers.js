@@ -33,4 +33,35 @@ bmp280Controller.addData = async (req, res) => {
     }
   };
 
+
+bmp280Controller.getDataRange= async (req, res) => {
+  const range = req.query.range;
+  let startDate;
+
+  switch (range) {
+    case 'month':
+      startDate = new Date();
+      startDate.setMonth(startDate.getMonth() - 1);
+      break;
+    case 'semester':
+      startDate = new Date();
+      startDate.setMonth(startDate.getMonth() - 6);
+      break;
+    case 'year':
+      startDate = new Date();
+      startDate.setFullYear(startDate.getFullYear() - 1);
+      break;
+    default:
+      startDate = new Date(0); // All data if range is not specified
+      break;
+  }
+
+  try {
+    const data = await Bmp280.find({ timestamp: { $gte: startDate } });
+    res.json(data);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+};
+
 module.exports = bmp280Controller;

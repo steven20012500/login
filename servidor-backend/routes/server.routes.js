@@ -4,6 +4,7 @@ const bmp280 = require('../controllers/bmp280.controllers');
 const dht22 = require('../controllers/dht22.controllers');
 const usuarios = require('../controllers/usuarios.controllers');
 const reportes = require('../controllers/reportes.controllers');
+
 const verifyToken = require('../controllers/authMiddleware');
 
 router.post('/login', usuarios.login);
@@ -19,5 +20,8 @@ router.put('/usuarios/:username',verifyToken, usuarios.updateUsuario);
 router.get('/usuarios/:username',verifyToken, usuarios.getUserByUsername);
 router.get('/download-xls', verifyToken, reportes.generateXlsReport);
 router.get('/download-pdf', verifyToken, reportes.generatePdfReport);
+router.use('/bmp280-data', verifyToken, bmp280.getDataRange);
+router.use('/dht22-data', verifyToken, dht22.getDataRange);
+
 
 module.exports = router;
