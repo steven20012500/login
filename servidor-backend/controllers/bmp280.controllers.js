@@ -39,6 +39,14 @@ bmp280Controller.getDataRange= async (req, res) => {
   let startDate;
 
   switch (range) {
+    case 'day':
+      startDate = new Date();
+      startDate.setDate(startDate.getDate() - 1);
+      break;
+    case 'week':
+      startDate = new Date();
+      startDate.setDate(startDate.getDate() - 7);
+      break;       
     case 'month':
       startDate = new Date();
       startDate.setMonth(startDate.getMonth() - 1);

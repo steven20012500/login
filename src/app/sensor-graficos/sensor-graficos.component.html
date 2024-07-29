@@ -3,9 +3,11 @@
   <div class="filter-container">
     <label for="timeRange">Seleccione el rango de tiempo:</label>
     <select id="timeRange" (change)="updateCharts($event)">
-      <option value="month">Último Mes</option>
-      <option value="semester">Último Semestre</option>
       <option value="year">Último Año</option>
+      <option value="semester">Último Semestre</option>
+      <option value="month">Último Mes</option>
+      <option value="week">Última Semana</option>
+      <option value="day">Día Actual</option>
     </select>
   </div>
   <div class="chart-container">
