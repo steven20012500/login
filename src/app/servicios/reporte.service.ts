@@ -5,8 +5,8 @@ import { StorageService } from './storage.service';
   providedIn: 'root'
 })
 export class ReporteService {
-  private apiUrl = 'http://ec2-18-191-140-37.us-east-2.compute.amazonaws.com:3000/api/download-pdf';
-  private apiUrl2 = 'http://ec2-18-191-140-37.us-east-2.compute.amazonaws.com:3000/api/download-xls';
+  private apiUrl = 'http://ec2-44-212-25-145.compute-1.amazonaws.com:3000/api/download-pdf';
+  private apiUrl2 = 'http://ec2-44-212-25-145.compute-1.amazonaws.com:3000/api/download-xls';
   constructor(private http : HttpClient, private storageService: StorageService) { }
 
   downloadXlsReport() {

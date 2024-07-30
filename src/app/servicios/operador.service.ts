@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class OperadorService {
-  private apiUrl = 'http://ec2-18-191-140-37.us-east-2.compute.amazonaws.com:3000/api/usuarios/update-password';  
+  private apiUrl = 'http://ec2-44-212-25-145.compute-1.amazonaws.com:3000/api/usuarios/update-password';  
 
   constructor(private http:HttpClient ) { }
   changePassword(data: any): Observable<any> {
