@@ -9,9 +9,9 @@
 const char* ssid = "******";
 const char* password = "*******";
 
-const char* loginUrl = "http://ec2-18-191-140-37.us-east-2.compute.amazonaws.com:3000/api/login"; 
-const char* serverUrl = "http://ec2-18-191-140-37.us-east-2.compute.amazonaws.com:3000/api/bmp280";
-const char* dht22ServerUrl = "http://ec2-18-191-140-37.us-east-2.compute.amazonaws.com:3000/api/dht22";
+const char* loginUrl = "http://ec2-44-212-25-145.compute-1.amazonaws.com:3000/api/login"; 
+const char* serverUrl = "http://ec2-44-212-25-145.compute-1.amazonaws.com:3000/api/bmp280";
+const char* dht22ServerUrl = "http://ec2-44-212-25-145.compute-1.amazonaws.com:3000/api/dht22";
 
 const char* username = "******"; 
 const char* passwordU = "****"; 
