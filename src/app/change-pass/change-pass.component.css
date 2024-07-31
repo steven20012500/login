@@ -64,3 +64,25 @@ button:hover {
         padding: 20px;
     }
 }
+
+@media (max-width: 768px) {
+    .content {
+        margin: 60px 30px;
+        padding: 25px;
+    }
+
+    h2 {
+        font-size: 22px;
+        margin-bottom: 25px;
+    }
+
+    input {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    button {
+        padding: 10px;
+        font-size: 14px;
+    }
+}

@@ -4,7 +4,7 @@ body {
 }
 
 .content {
-    max-width: 400px;
+    max-width: 800px;
     margin: 100px auto;
     padding: 30px;
     background-color: #ffffff;
@@ -74,6 +74,30 @@ button {
 
 button:hover {
     background-color: #043453;
+}
+
+/* Responsive adjustments for iPad Mini */
+@media (max-width: 768px) {
+    .content {
+        max-width: 600px;
+        margin: 80px 20px;
+        padding: 25px;
+    }
+
+    h2 {
+        font-size: 22px;
+    }
+
+    input,
+    select {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    button {
+        padding: 10px;
+        font-size: 18px;
+    }
 }
 
 @media (max-width: 500px) {

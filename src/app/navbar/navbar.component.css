@@ -1,19 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
 
-.header{
+.header {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    padding: 20px 100px;
-    background: transparent;
+    padding: 20px 20px;
+    background: rgba(0, 0, 0, 0.6);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     display: flex;
@@ -24,22 +24,28 @@
 }
 
 .logo {
-    font-size: 32px;
+    font-size: 24px;
     color: white;
     text-decoration: none;
     font-weight: 700;
 }
 
-.navbar a{
+.navbar {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.navbar a {
     position: relative;
     font-size: 18px;
     color: white;
     font-weight: 500;
     text-decoration: none;
-    margin-left: 40px;
+    margin: 5px 0;
 }
 
-.navbar a::before{
+.navbar a::before {
     content: '';
     position: absolute;
     top: 100%;
@@ -50,11 +56,11 @@
     transition: .3s;
 }
 
-.navbar a:hover::before{
+.navbar a:hover::before {
     width: 100%;
 }
 
-/*userMenu*/
+/* User Menu */
 .user-menu {
     display: flex;
     align-items: center;
@@ -63,7 +69,7 @@
 .user-icon {
     width: 24px;
     height: 24px;
-    margin-left: 20px;
+    margin-left: 10px;
     cursor: pointer;
 }
 
@@ -88,7 +94,7 @@
     background-color: white;
     color: black;
     min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
 }
 
@@ -107,3 +113,20 @@
     display: block;
 }
 
+@media (min-width: 768px) {
+    .header {
+        padding: 20px 100px;
+    }
+    
+    .logo {
+        font-size: 32px;
+    }
+    
+    .navbar {
+        flex-direction: row;
+    }
+    
+    .navbar a {
+        margin-left: 40px;
+    }
+}

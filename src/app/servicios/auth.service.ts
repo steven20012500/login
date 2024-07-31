@@ -8,7 +8,7 @@ import { jwtDecode } from 'jwt-decode';
   providedIn: 'root'
 })
 export class AuthService {
-  private apiUrl = 'http://ec2-44-212-25-145.compute-1.amazonaws.com:3000/api/login';
+  private apiUrl = 'http://ec2-44-211-156-254.compute-1.amazonaws.com:3000/api/login';
 
   constructor(
     private http: HttpClient,
