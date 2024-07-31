@@ -4,7 +4,7 @@
         <p><br>Aprende cómo funciona una estación meteorológica utilizando los sensores DHT22, BMP280 y un
             ESP32. Además del uso del stack MEAN para su implementación web.</p>
         <a href="#inicio">
-            <button type="button">Empezar -> </button>
+            <button type="button">Bienvenido 😊 </button>
         </a>
     </div>
 </div>
@@ -12,11 +12,11 @@
 <div class="container" id="inicio">
     <div class="header-content">
         <h1>Bienvenido a nuestra Estación Meteorológica 😎</h1>
-        <p>Se requieren de los siguientes sensores. Se explican las tecnologias requeridas para la visualización de
+        <p>Se requieren de los siguientes sensores. Se explican las tecnologías requeridas para la visualización de
             datos en web.</p>
     </div>
     <div class="content">
-        <div class="card">
+        <div class="card" [class.flip]="bmp280Flip" (click)="flipCard('bmp280')">
             <div class="face front">
                 <img src="/BMP.jpg" alt="Sensor BMP280">
                 <h3>BMP280</h3>
@@ -27,11 +27,12 @@
                     funcionamiento está basado en la relación entre presión del aire y la altitud.</p>
                 <div class="link">
                     <a href="https://naylampmechatronics.com/sensores-posicion-inerciales-gps/358-sensor-de-presion-bmp280.html"
-                        target="_blank">Conoce mas😏</a>
+                        target="_blank">Conoce más 😏</a>
                 </div>
             </div>
         </div>
-        <div class="card">
+
+        <div class="card" [class.flip]="dht22Flip" (click)="flipCard('dht22')">
             <div class="face front">
                 <img src="/DHT22.jpg" alt="Sensor DHT22">
                 <h3>DHT22</h3>
@@ -39,15 +40,16 @@
             <div class="face back">
                 <h3>Sensor DHT22</h3>
                 <p>Sensor digital de temperatura y humedad relativa, buen rendimiento y bajo costo. Usa un sensor
-                    capacitivo de humedad y un termistor para medir el aire circundante, muestra los datos mediante
-                    una señal digital.</p>
+                    capacitivo de humedad y un termistor para medir el aire circundante, muestra los datos mediante una
+                    señal digital.</p>
                 <div class="link">
                     <a href="https://naylampmechatronics.com/sensores-temperatura-y-humedad/58-sensor-de-temperatura-y-humedad-relativa-dht22-am2302.html"
-                        target="_blank">Conoce mas😏</a>
+                        target="_blank">Conoce más 😏</a>
                 </div>
             </div>
         </div>
-        <div class="card">
+
+        <div class="card" [class.flip]="esp32Flip" (click)="flipCard('esp32')">
             <div class="face front">
                 <img src="/Esp.jpg" alt="Esp32">
                 <h3>ESP32</h3>
@@ -57,7 +59,7 @@
                 <p>Es muy superior, en capacidades, a un Arduino UNO. En su diagrama de bloques se puede apreciar un
                     microprocesador de 32-bits (dual core o single core), comunicación inalámbrica Wifi y Bluetooth.</p>
                 <div class="link">
-                    <a href="https://programarfacil.com/esp8266/esp32/" target="_blank">Conoce mas😏</a>
+                    <a href="https://programarfacil.com/esp8266/esp32/" target="_blank">Conoce más 😏</a>
                 </div>
             </div>
         </div>
@@ -71,8 +73,13 @@
             <h2>¿Qué es el stack MEAN?</h2>
             <p>MEAN es un acrónimo que representa un conjunto de tecnologías JavaScript de código abierto, muy populares
                 en el desarrollo web.
-                Una de las principales ventajas es que utiliza JavaScript tanto en el frontend (Angular) como en el backend (Node.js y Express.js). Esto simplifica el desarrollo al permitir a los desarrolladores utilizar un solo lenguaje en toda la aplicación, lo que reduce la curva de aprendizaje y facilita la gestión del código.
-                Tanto MongoDB como Node.js son conocidos por su capacidad para manejar grandes volúmenes de datos y cargas de trabajo elevadas. Esto hace que el stack MEAN sea ideal para aplicaciones que necesitan crecer y adaptarse a un aumento en el número de usuarios.
+                Una de las principales ventajas es que utiliza JavaScript tanto en el frontend (Angular) como en el
+                backend (Node.js y Express.js). Esto simplifica el desarrollo al permitir a los desarrolladores utilizar
+                un solo lenguaje en toda la aplicación, lo que reduce la curva de aprendizaje y facilita la gestión del
+                código.
+                Tanto MongoDB como Node.js son conocidos por su capacidad para manejar grandes volúmenes de datos y
+                cargas de trabajo elevadas. Esto hace que el stack MEAN sea ideal para aplicaciones que necesitan crecer
+                y adaptarse a un aumento en el número de usuarios.
             </p>
         </div>
     </div>
@@ -93,33 +100,44 @@
             escalable.</p>
     </div>
     <div class="info-card">
-        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-nodejs" width="60" height="60" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffbf00" fill="none" stroke-linecap="round" stroke-linejoin="round">
-            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-            <path d="M9 9v8.044a2 2 0 0 1 -2.996 1.734l-1.568 -.9a3 3 0 0 1 -1.436 -2.561v-6.635a3 3 0 0 1 1.436 -2.56l6 -3.667a3 3 0 0 1 3.128 0l6 3.667a3 3 0 0 1 1.436 2.561v6.634a3 3 0 0 1 -1.436 2.56l-6 3.667a3 3 0 0 1 -3.128 0" />
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-nodejs" width="60" height="60"
+            viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffbf00" fill="none" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path
+                d="M9 9v8.044a2 2 0 0 1 -2.996 1.734l-1.568 -.9a3 3 0 0 1 -1.436 -2.561v-6.635a3 3 0 0 1 1.436 -2.56l6 -3.667a3 3 0 0 1 3.128 0l6 3.667a3 3 0 0 1 1.436 2.561v6.634a3 3 0 0 1 -1.436 2.56l-6 3.667a3 3 0 0 1 -3.128 0" />
             <path d="M17 9h-3.5a1.5 1.5 0 0 0 0 3h2a1.5 1.5 0 0 1 0 3h-3.5" />
-          </svg>
+        </svg>
         <h2>Angular</h2>
-        <p>Framework de fronted para construir aplicaciones de una sola página con TypeScript. Divide la interfaz en componentes reutilizables.</p>
+        <p>Framework de fronted para construir aplicaciones de una sola página con TypeScript. Divide la interfaz en
+            componentes reutilizables.</p>
     </div>
     <div class="info-card">
-        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-angular" width="60" height="60" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ff4500" fill="none" stroke-linecap="round" stroke-linejoin="round">
-            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-            <path d="M5.428 17.245l6.076 3.471a1 1 0 0 0 .992 0l6.076 -3.471a1 1 0 0 0 .495 -.734l1.323 -9.704a1 1 0 0 0 -.658 -1.078l-7.4 -2.612a1 1 0 0 0 -.665 0l-7.399 2.613a1 1 0 0 0 -.658 1.078l1.323 9.704a1 1 0 0 0 .495 .734z" />
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-angular" width="60"
+            height="60" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ff4500" fill="none" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path
+                d="M5.428 17.245l6.076 3.471a1 1 0 0 0 .992 0l6.076 -3.471a1 1 0 0 0 .495 -.734l1.323 -9.704a1 1 0 0 0 -.658 -1.078l-7.4 -2.612a1 1 0 0 0 -.665 0l-7.399 2.613a1 1 0 0 0 -.658 1.078l1.323 9.704a1 1 0 0 0 .495 .734z" />
             <path d="M9 15l3 -8l3 8" />
             <path d="M10 13h4" />
-          </svg>
+        </svg>
         <h2>Node.js</h2>
         <p>Un entorno de ejecución para JavaScript en el servidor que permite construir aplicaciones de red escalables.
         </p>
     </div>
     <div class="info-card">
-        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hexagon-letter-e" width="60" height="60" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ff9300" fill="none" stroke-linecap="round" stroke-linejoin="round">
-            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-            <path d="M19.875 6.27a2.225 2.225 0 0 1 1.125 1.948v7.284c0 .809 -.443 1.555 -1.158 1.948l-6.75 4.27a2.269 2.269 0 0 1 -2.184 0l-6.75 -4.27a2.225 2.225 0 0 1 -1.158 -1.948v-7.285c0 -.809 .443 -1.554 1.158 -1.947l6.75 -3.98a2.33 2.33 0 0 1 2.25 0l6.75 3.98h-.033z" />
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hexagon-letter-e" width="60"
+            height="60" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ff9300" fill="none" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path
+                d="M19.875 6.27a2.225 2.225 0 0 1 1.125 1.948v7.284c0 .809 -.443 1.555 -1.158 1.948l-6.75 4.27a2.269 2.269 0 0 1 -2.184 0l-6.75 -4.27a2.225 2.225 0 0 1 -1.158 -1.948v-7.285c0 -.809 .443 -1.554 1.158 -1.947l6.75 -3.98a2.33 2.33 0 0 1 2.25 0l6.75 3.98h-.033z" />
             <path d="M14 8h-4v8h4" />
             <path d="M10 12h2.5" />
-          </svg>
+        </svg>
         <h2>Express</h2>
-        <p>Framework backend más popular para Node. Diseñado para construir aplicaciones web de una sola página, multipágina e híbridas.</p>
+        <p>Framework backend más popular para Node. Diseñado para construir aplicaciones web de una sola página,
+            multipágina e híbridas.</p>
     </div>
 </div>
